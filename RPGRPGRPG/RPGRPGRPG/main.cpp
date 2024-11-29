@@ -4,53 +4,30 @@
 #include <time.h>
 #include "Consts.h"
 #include "Character.h"
+#include "Enemy.h"
 
 void main()
 {
 	srand(time(NULL));
-	char map[COLS][ROWS];
-	Player stats;
 
-	stats.health = rand() % (110 - 1 - 90) + 90;
-	int actualHealth = stats.health;
-	stats.potions = MAX_POTIONS;
-	stats.agility = MAX_AGILITY;
+	Enemy stats;
 
-	printf("------DUNGEON------\n");
+	stats.health = rand() % (MAX_HP_ENEMY - 1 - MIN_HP_ENEMY) + MIN_HP_ENEMY;
+	int actualEnemyHealth = stats.health;
+	stats.stamina = rand() % (MAX_STAMINA_ENEMY - 1 - MIN_STAMINA_ENEMY) + MIN_STAMINA_ENEMY;
+	printf("------COMBAT------\n");
 	printf("\n");
 
-	printf("Player -> P   Enemy -> E  Chest -> C\n");
-	printf("\n");
+	printf("--Enemy--\n");
 
-	printf("Health: %d / %d\n", actualHealth, stats.health);
-	printf("Potions: %d / %d\n", stats.potions, MAX_POTIONS);
-	printf("Moves: %d / %d\n", stats.agility, MAX_AGILITY);
-	printf("\n");
-
-	for (int i = 0; i < COLS; i++)
+	if (actualEnemyHealth == stats.health)
 	{
-		for (int j = 0; j < ROWS; j++)
-		{
-			map[i][j] = '-';
-		}
+		printf("[ = = = = = = ] %d HP\n", stats.health);
 	}
-
-	for (int i = 0; i < COLS; i++)
+	else if (actualEnemyHealth == stats.health / 2)
 	{
-		for (int j = 0; j < ROWS; j++)
-		{
-			printf("%c ", map[i][j]);
-		}
-
-		printf("\n");
+		printf("[ = = = ] %d HP\n", stats.health);
 	}
-
-	printf("\n");
-	printf("-------------------\n");
-	printf("\n");
-	printf("WASD -> Move\n");
-	printf("P -> Potion\n");
-	printf("\n");
-	printf("Enter your action\n");
-
+	
+	printf("%d Stamina", stats.stamina);
 }

@@ -1,8 +1,8 @@
 #pragma once
 
 // MAP
-#define COLS 21
-#define ROWS 21
+#define COLS 5
+#define ROWS 5
 
 // PLAYER
 #define MIN_HP_PLAYER 90

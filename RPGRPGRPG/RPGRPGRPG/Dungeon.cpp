@@ -7,14 +7,37 @@
 
 void PrintMap(char map[ROWS][COLS])
 {
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			printf("%c", map[i][j]);
+	for (int i = 0; i < ROWS; i++) {
+		// Imprimir la línea divisoria superior
+		for (int j = 0; j < COLS; j++) {
+			printf(" ---");
 		}
 		printf("\n");
+
+		// Imprimir las filas del tablero
+		for (int j = 0; j < COLS; j++) {
+			printf("|   ");
+		}
+		printf("|\n");
+
+
+		// Imprimir las filas del tablero
+		for (int j = 0; j < COLS; j++) {
+			printf("|   ");
+		}
+		printf("|\n");
+
+		for (int j = 0; j < COLS; j++) {
+			printf("|   ");
+		}
+		printf("|\n");
 	}
+
+	// Imprimir la última línea divisoria
+	for (int j = 0; j < ROWS; j++) {
+		printf(" ---");
+	}
+	printf("\n");
 }
 
 void Dungeon()
@@ -24,47 +47,17 @@ void Dungeon()
 	// DUNGEON
 	Player stats;
 
-	stats.health = rand() % (MAX_HP_PLAYER - 1 - MIN_HP_PLAYER) + MIN_HP_ENEMY;
-	int actualHealth = stats.health;
-	stats.potions = MAX_POTIONS;
-	stats.agility = MAX_AGILITY;
-
 	printf("------DUNGEON------\n");
 	printf("\n");
 
 	printf("Player -> P   Enemy -> E  Chest -> C\n");
 	printf("\n");
 
-	printf("Health: %d / %d\n", actualHealth, stats.health);
+	printf("Health: %d / %d\n", stats.actualHealth, stats.health);
 	printf("Potions: %d / %d\n", stats.potions, MAX_POTIONS);
 	printf("Moves: %d / %d\n", stats.agility, MAX_AGILITY);
 	printf("\n");
 
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			map[i][j] = ' ';
-		}
-	}
-
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			if (i % 4 == 0)
-			{
-				if (j % 4 != 3)
-				{
-					map[i][j] = '-';
-				}
-			}
-			else if (j % 4 == 0)
-			{
-				map[i][j] = '|';
-			}
-		}
-	}
 
 	PrintMap(map);
 

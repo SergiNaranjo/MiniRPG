@@ -1,4 +1,4 @@
 ﻿  main.cpp
-C:\Users\naran\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\main.cpp(10,1): warning C4326: el tipo de valor devuelto de 'main' debe ser 'int' en lugar de 'void'
-C:\Users\naran\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\main.cpp(11,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  RPGRPGRPG.vcxproj -> C:\Users\naran\Desktop\MiniRPG\RPGRPGRPG\x64\Debug\RPGRPGRPG.exe
+C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\main.cpp(10,1): warning C4326: el tipo de valor devuelto de 'main' debe ser 'int' en lugar de 'void'
+C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\main.cpp(11,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  RPGRPGRPG.vcxproj -> C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\x64\Debug\RPGRPGRPG.exe

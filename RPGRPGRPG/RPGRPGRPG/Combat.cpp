@@ -5,9 +5,10 @@
 #include "Consts.h"
 #include "Character.h"
 #include "Enemy.h"
+#include "Scenes.h"
 
 
-void Combat()
+void Scene::Combat()
 {
 	Enemy stats;
 	Player playerStats;

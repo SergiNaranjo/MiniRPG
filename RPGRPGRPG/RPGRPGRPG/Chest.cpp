@@ -5,9 +5,10 @@
 #include "Consts.h"
 #include "Character.h"
 #include "Enemy.h"
+#include "Scenes.h"
 
 
-void Chest()
+void Scene::Chest()
 {
 	printf("------CHEST------\n");
 	printf("\n");

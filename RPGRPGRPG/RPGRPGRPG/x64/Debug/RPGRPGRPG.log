@@ -1,4 +1,10 @@
-﻿  main.cpp
-C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\main.cpp(11,1): warning C4326: el tipo de valor devuelto de 'main' debe ser 'int' en lugar de 'void'
-C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\main.cpp(12,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  RPGRPGRPG.vcxproj -> C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\x64\Debug\RPGRPGRPG.exe
+﻿  Dungeon.cpp
+C:\Users\naran\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\Dungeon.cpp(106,17): warning C4473: "scanf_s": no se pasaron suficientes argumentos para la cadena de formato
+  C:\Users\naran\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\Dungeon.cpp(106,17):
+  los marcadores de posición y sus parámetros esperan 2 argumentos variádicos, pero se proporcionaron 1
+  C:\Users\naran\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\Dungeon.cpp(106,17):
+  el argumento variádico 2 que falta es requerido por la cadena de formato '%c'
+  C:\Users\naran\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\Dungeon.cpp(106,17):
+  este argumento se utiliza como un tamaño de búfer
+  
+  RPGRPGRPG.vcxproj -> C:\Users\naran\Desktop\MiniRPG\RPGRPGRPG\x64\Debug\RPGRPGRPG.exe

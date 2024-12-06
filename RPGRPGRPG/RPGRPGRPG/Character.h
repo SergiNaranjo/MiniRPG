@@ -11,4 +11,5 @@ struct Player
 	int potions = MAX_POTIONS;
 	int actualHealth = health;
 	int actualStamina = stamina;
+	int actualPotions = potions;
 };

@@ -130,6 +130,7 @@
     <ClCompile Include="Chest.cpp" />
     <ClCompile Include="Combat.cpp" />
     <ClCompile Include="Dungeon.cpp" />
+    <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -8,9 +8,10 @@
 #include "Scenes.h"
 #include "Map.h"
 
-void PrintDungeon();
-void PrintCombat();
-void PrintChest();
+void PrintDungeon(Scene& scene);
+void PrintCombat(Scene& scene);
+void PrintChest(Scene& scene);
+void PrintGameOver(Scene& scene);
 
 void main()
 {
@@ -26,13 +27,16 @@ void main()
 		switch (manager.currentScene)
 		{
 		case DUNGEON:
-			PrintDungeon();
+			PrintDungeon(manager);
 			break;
 		case COMBAT:
-			PrintCombat();
+			PrintCombat(manager);
 			break;
 		case CHEST:
-			PrintChest();
+			PrintChest(manager);
+			break;
+		case GAMEOVER:
+			PrintGameOver(manager);
 			break;
 		}
 		system("pause");
@@ -40,23 +44,22 @@ void main()
 	
 }
 
-void PrintDungeon()
+void PrintDungeon(Scene& scene)
 {
-	Scene scene;
-
-	scene.Dungeon();
+	scene.Dungeon(scene);
 }
 
-void PrintCombat()
+void PrintCombat(Scene& scene)
 {
-	Scene scene;
-
-	scene.Combat();
+	scene.Combat(scene);
 }
 
-void PrintChest()
+void PrintChest(Scene& scene)
 {
-	Scene scene;
-
 	scene.Chest();
+}
+
+void PrintGameOver(Scene& scene)
+{
+	scene.GameOver(scene);
 }

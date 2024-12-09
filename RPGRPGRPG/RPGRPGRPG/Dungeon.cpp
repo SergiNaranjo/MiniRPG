@@ -8,36 +8,69 @@
 #include "Scenes.h"
 #include "Enemy.h"
 
-void PrintMap(char map[ROWS][COLS]) 
-{
-	for (int i = 0; i < ROWS; i++) 
-	{
-		for (int j = 0; j < COLS; j++) 
-		{
-			printf("%c ", map[i][j]);
-		}
-		printf("\n");
-	}
+void PrintMap(char map[ROWS][COLS]) {
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            printf("%c ", map[i][j]);
+        }
+        printf("\n");
+    }
 }
 
-void InitializeMap(char map[ROWS][COLS], MapPosition playerPosition, char playerChar, char enemyChar) 
-{
-	for (int i = 0; i < ROWS; i++) 
-	{
-		for (int j = 0; j < COLS; j++) 
-		{
-			map[i][j] = '-';
+void PlaceEnemies(char map[ROWS][COLS], MapPosition enemies[], int enemyCount, MapPosition playerPosition, MapPosition chests[], int chestCount, char enemyChar) {
+    srand((unsigned int)time(NULL));
+    int placed = 0;
 
-            if (i == 0 && j == 0 || i == 1 && j == 1 || i == 1 && j == 4 || i == 4 && j == 1 || i == 4 && j == 3)
-            {
-                map[i][j] = enemyChar;
+    while (placed < enemyCount) {
+        int x = rand() % ROWS;
+        int y = rand() % COLS;
+
+        // Verificar que la posición no esté ocupada por el jugador ni por cofres
+        int valid = 1;
+        if (map[x][y] != '-') valid = 0;
+        if (x == playerPosition.x && y == playerPosition.y) valid = 0;
+
+        for (int i = 0; i < chestCount; i++) {
+            if (x == chests[i].x && y == chests[i].y) {
+                valid = 0;
+                break;
             }
-		}
-	}
-	map[playerPosition.x][playerPosition.y] = playerChar;
+        }
+
+        if (valid) {
+            map[x][y] = enemyChar;
+            enemies[placed].x = x;
+            enemies[placed].y = y;
+            placed++;
+        }
+    }
 }
 
-MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][COLS], Scene& manager)
+void RemoveEnemy(MapPosition enemies[], int& enemyCount, int index) {
+    for (int i = index; i < enemyCount - 1; i++) {
+        enemies[i] = enemies[i + 1];
+    }
+    enemyCount -= 1; // Reducir la cuenta total de enemigos
+}
+
+
+void InitializeMap(char map[ROWS][COLS], MapPosition playerPosition, char playerChar, char chestChar, MapPosition chests[], int chestCount) {
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            map[i][j] = '-';
+        }
+    }
+
+    // Colocar cofres
+    for (int i = 0; i < chestCount; i++) {
+        map[chests[i].x][chests[i].y] = chestChar;
+    }
+
+    // Colocar al jugador
+    map[playerPosition.x][playerPosition.y] = playerChar;
+}
+
+MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][COLS], Scene& manager, MapPosition enemies[], int& enemyCount)
 {
     // Guardar la posición previa
     MapPosition previousPosition = playerPosition;
@@ -61,18 +94,37 @@ MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][C
     }
 
     // Comprobar si la nueva posición tiene un enemigo
-    if (map[playerPosition.x][playerPosition.y] == 'E')
-    {
+    int enemyIndex = -1;
+
+    if (map[playerPosition.x][playerPosition.y] == 'E') {
         manager.currentScene = COMBAT; // Cambiar a la escena de combate
+
+        // Buscar al enemigo en el array de enemigos
+        for (int i = 0; i < enemyCount; i++) {
+            if (enemies[i].x == playerPosition.x && enemies[i].y == playerPosition.y) {
+                enemyIndex = i;
+                break;
+            }
+        }
+    }
+
+
+    if (map[playerPosition.x][playerPosition.y] == 'C')
+    {
+        manager.currentScene = CHEST; // Cambiar a la escena de combate
     }
 
     return playerPosition;
 }
 
 
-void UpdateMap(char map[ROWS][COLS], MapPosition playerPosition, char playerChar, char enemyChar) 
-{
-	InitializeMap(map, playerPosition, playerChar, enemyChar);
+void UpdateMap(char map[ROWS][COLS], MapPosition playerPosition, char playerChar, char chestChar, MapPosition chests[], int chestCount, MapPosition enemies[], int enemyCount, char enemyChar) {
+    InitializeMap(map, playerPosition, playerChar, chestChar, chests, chestCount);
+
+    // Colocar enemigos
+    for (int i = 0; i < enemyCount; i++) {
+        map[enemies[i].x][enemies[i].y] = enemyChar;
+    }
 }
 
 void Scene::Dungeon(Scene& manager)
@@ -83,8 +135,19 @@ void Scene::Dungeon(Scene& manager)
     MapPosition playerPosition = { 3, 2 }; // Posición inicial del jugador
     MapPosition enemyPosition = { 5, 5 }; // Posición inicial del enemigo
     char action;
+    char chestChar = 'C';
+    int enemyIndex = -1; // Inicializar a -1 para indicar que no hay enemigo seleccionado
 
-    InitializeMap(map, playerPosition, stats.character, enemyStats.enemy);
+
+    MapPosition chests[MAX_CHESTS] = { {0, 4}, {1, 3} };
+    int chestCount = 2; // Número explícito de cofres
+
+    // Generar enemigos aleatorios
+    int enemyCount = (rand() % (MAX_ENEMIES - MIN_ENEMIES + 1)) + MIN_ENEMIES;
+    MapPosition enemies[MAX_ENEMIES];
+
+    InitializeMap(map, playerPosition, stats.character, chestChar, chests, chestCount);
+    PlaceEnemies(map, enemies, enemyCount, playerPosition, chests, chestCount, enemyStats.enemy);
 
     bool play = true;
 
@@ -115,9 +178,23 @@ void Scene::Dungeon(Scene& manager)
             stats.actualPotions--;
         }
 
-        MapPosition newPosition = MovePlayer(playerPosition, action, map, manager);
+        MapPosition newPosition = MovePlayer(playerPosition, action, map, manager, enemies, enemyCount);
 
-        if (manager.currentScene == COMBAT)
+        if (manager.currentScene == COMBAT) {
+            printf("¡Combate activado! Cambiando de escena...\n");
+
+            // Simular el final del combate (puedes integrar tu lógica aquí)
+            printf("¡Combate terminado! Eliminando enemigo...\n");
+
+            if (enemyIndex != -1) {
+                RemoveEnemy(enemies, enemyCount, enemyIndex);
+                map[playerPosition.x][playerPosition.y] = '-'; // Limpiar la casilla
+            }
+            break;
+        }
+
+
+        if (manager.currentScene == CHEST)
         {
             printf("¡Combate activado! Cambiando de escena...\n");
             break; // Salir del bucle principal para entrar al combate
@@ -129,7 +206,8 @@ void Scene::Dungeon(Scene& manager)
             playerPosition = newPosition;
         }
 
-        UpdateMap(map, playerPosition, stats.character, enemyStats.enemy);
+        UpdateMap(map, playerPosition, stats.character, chestChar, chests, chestCount, enemies, enemyCount, enemyStats.enemy);
+
 
         system("pause");
     }

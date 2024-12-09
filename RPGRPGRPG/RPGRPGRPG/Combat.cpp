@@ -35,7 +35,6 @@ void Scene::Combat(Scene& manager)
 		}
 		else if (stats.actualEnemyHealth <= 0)
 		{
-			// Falta cambio de escena
 			manager.currentScene = DUNGEON;
 		}
 

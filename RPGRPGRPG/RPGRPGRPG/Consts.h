@@ -13,8 +13,12 @@
 #define MAX_AGILITY 3
 
 // ENEMY
+#define MIN_ENEMIES 5
+#define MAX_ENEMIES 7
 #define MIN_HP_ENEMY 60
 #define MAX_HP_ENEMY 90
 #define MIN_STAMINA_ENEMY 60
 #define MAX_STAMINA_ENEMY 90
 
+//CHEST
+#define MAX_CHESTS 2

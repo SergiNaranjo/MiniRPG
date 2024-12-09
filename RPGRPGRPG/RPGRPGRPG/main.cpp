@@ -15,15 +15,12 @@ void PrintGameOver(Scene& scene);
 
 void main()
 {
-	srand(time(NULL));
-
 	Scene manager;
 
 	manager.currentScene = DUNGEON;
 
 	while (true)
 	{
-		system("cls");
 		switch (manager.currentScene)
 		{
 		case DUNGEON:
@@ -39,7 +36,6 @@ void main()
 			PrintGameOver(manager);
 			break;
 		}
-		system("pause");
 	}
 	
 }
@@ -56,7 +52,7 @@ void PrintCombat(Scene& scene)
 
 void PrintChest(Scene& scene)
 {
-	scene.Chest();
+	scene.Chest(scene);
 }
 
 void PrintGameOver(Scene& scene)

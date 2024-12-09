@@ -7,7 +7,7 @@ struct Scene
 	Scenes currentScene;
 	void Dungeon(Scene& scene);
 	void Combat(Scene& manager);
-	void Chest();
+	void Chest(Scene& manager);
 	void GameOver(Scene& manager);
 };
 

@@ -48,6 +48,21 @@ void Scene::Chest(Scene& manager)
             case 4:
                 printf("   > Raven feather (50 gold value)\n");
                 break;
+            case 5:
+                printf("   > Red Mushroom (170 gold value)\n");
+                break;
+            case 6:
+                printf("   > Ugly Facemask (10 gold value)\n");
+                break;
+            case 7:
+                printf("   > Broken Shield (25 gold value)\n");
+                break;
+            case 8:
+                printf("   > Green mushroom (-50 gold value)\n");
+                break;
+            case 9:
+                printf("   > Naughty book (69 gold value)\n");
+                break;
             }
 
             printf(" > Do you want to equip the item? Yes(0) or No(1)");
@@ -88,6 +103,31 @@ void Scene::Chest(Scene& manager)
                     playerStats.gold -= 50;
                     playerStats.health -= 10;
                     playerStats.agility += 2;
+                }
+                else if (gear == 5)
+                {
+                    playerStats.gold -= 170;
+                    playerStats.health += 30;
+                }
+                else if (gear == 6)
+                {
+                    playerStats.gold -= 10;
+                    playerStats.health += 5;
+                }
+                else if (gear == 7)
+                {
+                    playerStats.gold -= 25;
+                    playerStats.health += 10;
+                }
+                else if (gear == 8)
+                {
+                    playerStats.gold -= 50;
+                    playerStats.stamina -= 10;
+                }
+                else if (gear == 9)
+                {
+                    playerStats.gold -= 69;
+                    playerStats.stamina += 7;
                 }
             }
 
@@ -114,6 +154,21 @@ void Scene::Chest(Scene& manager)
             case 4:
                 printf("   > Raven feather (50 gold value)\n");
                 break;
+            case 5:
+                printf("   > Red Mushroom (170 gold value)\n");
+                break;
+            case 6:
+                printf("   > Ugly Facemask (10 gold value)\n");
+                break;
+            case 7:
+                printf("   > Broken Shield (25 gold value)\n");
+                break;
+            case 8:
+                printf("   > Green mushroom (-50 gold value)\n");
+                break;
+            case 9:
+                printf("   > Naughty book (69 gold value)\n");
+                break;
             }
 
             printf(" > Do you want to equip the item? Yes(0) or No(1)");
@@ -154,6 +209,31 @@ void Scene::Chest(Scene& manager)
                     playerStats.gold -= 50;
                     playerStats.health -= 10;
                     playerStats.agility += 2;
+                }
+                else if (gear == 5)
+                {
+                    playerStats.gold -= 170;
+                    playerStats.health += 30;
+                }
+                else if (gear == 6)
+                {
+                    playerStats.gold -= 10;
+                    playerStats.health += 5;
+                }
+                else if (gear == 7)
+                {
+                    playerStats.gold -= 25;
+                    playerStats.health += 10;
+                }
+                else if (gear == 8)
+                {
+                    playerStats.gold -= 50;
+                    playerStats.stamina -= 10;
+                }
+                else if (gear == 9)
+                {
+                    playerStats.gold -= 69;
+                    playerStats.stamina += 7;
                 }
             }
         }

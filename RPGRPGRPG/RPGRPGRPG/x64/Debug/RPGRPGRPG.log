@@ -1,6 +1,8 @@
 ﻿  Chest.cpp
-C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\Chest.cpp(41,17): warning C4477: 'scanf_s' : la cadena de formato '%d' requiere un argumento de tipo 'int *', pero el argumento variádico 1 tiene el tipo 'char *'
-C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\Chest.cpp(41,17): message : considere el uso de ' %hhd' en la cadena de formato
-C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\Chest.cpp(41,30): warning C4474: "scanf_s": se pasaron demasiados argumentos para la cadena de formato
-C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\Chest.cpp(41,30): message : los marcadores de posición y sus parámetros esperan 1 argumentos variádicos, pero se proporcionaron 2
+C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\Chest.cpp(54,36): warning C4474: "scanf_s": se pasaron demasiados argumentos para la cadena de formato
+C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\Chest.cpp(54,36): message : los marcadores de posición y sus parámetros esperan 1 argumentos variádicos, pero se proporcionaron 2
+C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\Chest.cpp(107,17): warning C4477: 'scanf_s' : la cadena de formato '%d' requiere un argumento de tipo 'int *', pero el argumento variádico 1 tiene el tipo 'char *'
+C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\Chest.cpp(107,17): message : considere el uso de ' %hhd' en la cadena de formato
+C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\Chest.cpp(107,30): warning C4474: "scanf_s": se pasaron demasiados argumentos para la cadena de formato
+C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\RPGRPGRPG\Chest.cpp(107,30): message : los marcadores de posición y sus parámetros esperan 1 argumentos variádicos, pero se proporcionaron 2
   RPGRPGRPG.vcxproj -> C:\Users\Sergi\Desktop\MiniRPG\RPGRPGRPG\x64\Debug\RPGRPGRPG.exe

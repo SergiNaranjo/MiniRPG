@@ -9,6 +9,7 @@ struct Scene
 	void Combat(Scene& manager);
 	void Chest(Scene& manager);
 	void GameOver(Scene& manager);
+	void Gear(Scene& manager);
 };
 
 

@@ -22,3 +22,4 @@
 
 //CHEST
 #define MAX_CHESTS 2
+#define MAX_GEAR 5

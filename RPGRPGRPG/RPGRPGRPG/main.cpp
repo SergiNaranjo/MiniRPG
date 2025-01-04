@@ -8,7 +8,7 @@
 #include "Scenes.h"
 #include "Map.h"
 
-void PrintDungeon(Scene& scene);
+void PrintDungeon(Scene& scene, int &enemyCount);
 void PrintCombat(Scene& scene);
 void PrintChest(Scene& scene);
 void PrintGameOver(Scene& scene);
@@ -16,7 +16,6 @@ void PrintGameOver(Scene& scene);
 void main()
 {
 	Scene manager;
-
 	manager.currentScene = DUNGEON;
 
 	while (true)
@@ -24,7 +23,7 @@ void main()
 		switch (manager.currentScene)
 		{
 		case DUNGEON:
-			PrintDungeon(manager);
+			PrintDungeon(manager, manager.enemyCount);
 			break;
 		case COMBAT:
 			PrintCombat(manager);
@@ -40,9 +39,9 @@ void main()
 	
 }
 
-void PrintDungeon(Scene& scene)
+void PrintDungeon(Scene& scene, int &enemyCount)
 {
-	scene.Dungeon(scene);
+	scene.Dungeon(scene, enemyCount);
 }
 
 void PrintCombat(Scene& scene)

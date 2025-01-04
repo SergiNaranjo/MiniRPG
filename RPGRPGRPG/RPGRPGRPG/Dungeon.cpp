@@ -17,8 +17,8 @@ void PrintMap(char map[ROWS][COLS]) {
     }
 }
 
-void PlaceEnemies(char map[ROWS][COLS], MapPosition enemies[], int enemyCount, MapPosition playerPosition, MapPosition chests[], int chestCount, char enemyChar) {
-    srand((unsigned int)time(NULL));
+void PlaceEnemies(char map[ROWS][COLS], MapPosition enemies[], int enemyCount, MapPosition playerPosition, MapPosition chests[], int chestCount, char enemyChar) 
+{
     int placed = 0;
 
     while (placed < enemyCount) {
@@ -46,11 +46,9 @@ void PlaceEnemies(char map[ROWS][COLS], MapPosition enemies[], int enemyCount, M
     }
 }
 
-void RemoveEnemy(MapPosition enemies[], int& enemyCount, int index) {
-    for (int i = index; i < enemyCount - 1; i++) {
-        enemies[i] = enemies[i + 1];
-    }
-    enemyCount -= 1; // Reducir la cuenta total de enemigos
+void RemoveEnemy(MapPosition enemies[], int index) 
+{
+    
 }
 
 
@@ -70,7 +68,7 @@ void InitializeMap(char map[ROWS][COLS], MapPosition playerPosition, char player
     map[playerPosition.x][playerPosition.y] = playerChar;
 }
 
-MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][COLS], Scene& manager, MapPosition enemies[], int& enemyCount)
+MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][COLS], Scene& manager, MapPosition enemies[], int* enemyCount)
 {
     // Guardar la posición previa
     MapPosition previousPosition = playerPosition;
@@ -96,16 +94,10 @@ MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][C
     // Comprobar si la nueva posición tiene un enemigo
     int enemyIndex = -1;
 
-    if (map[playerPosition.x][playerPosition.y] == 'E') {
+    if (map[playerPosition.x][playerPosition.y] == 'E') 
+    {
+        (*enemyCount)--;
         manager.currentScene = COMBAT; // Cambiar a la escena de combate
-
-        // Buscar al enemigo en el array de enemigos
-        for (int i = 0; i < enemyCount; i++) {
-            if (enemies[i].x == playerPosition.x && enemies[i].y == playerPosition.y) {
-                enemyIndex = i;
-                break;
-            }
-        }
     }
 
 
@@ -127,7 +119,7 @@ void UpdateMap(char map[ROWS][COLS], MapPosition playerPosition, char playerChar
     }
 }
 
-void Scene::Dungeon(Scene& manager)
+void Scene::Dungeon(Scene& manager, int &enemyCount)
 {
     char map[ROWS][COLS];
     Player stats;
@@ -143,10 +135,17 @@ void Scene::Dungeon(Scene& manager)
     int chestCount = 2; // Número explícito de cofres
 
     // Generar enemigos aleatorios
-    int enemyCount = (rand() % (MAX_ENEMIES - MIN_ENEMIES + 1)) + MIN_ENEMIES;
-    MapPosition enemies[MAX_ENEMIES];
+    
+
+    // Asignar memoria dinámica para el array de enemigos
+    MapPosition* enemies = (MapPosition*)malloc(enemyCount * sizeof(MapPosition));
+    if (enemies == NULL) {
+        printf("Error: No se pudo asignar memoria para los enemigos.\n");
+        exit(EXIT_FAILURE);
+    }
 
     InitializeMap(map, playerPosition, stats.character, chestChar, chests, chestCount);
+
     PlaceEnemies(map, enemies, enemyCount, playerPosition, chests, chestCount, enemyStats.enemy);
 
     bool play = true;
@@ -178,7 +177,7 @@ void Scene::Dungeon(Scene& manager)
             stats.actualPotions--;
         }
 
-        MapPosition newPosition = MovePlayer(playerPosition, action, map, manager, enemies, enemyCount);
+        MapPosition newPosition = MovePlayer(playerPosition, action, map, manager, enemies, &enemyCount);
 
         if (manager.currentScene == COMBAT) {
             printf("¡Combate activado! Cambiando de escena...\n");
@@ -187,7 +186,7 @@ void Scene::Dungeon(Scene& manager)
             printf("¡Combate terminado! Eliminando enemigo...\n");
 
             if (enemyIndex != -1) {
-                RemoveEnemy(enemies, enemyCount, enemyIndex);
+                RemoveEnemy(enemies, enemyIndex);
                 map[playerPosition.x][playerPosition.y] = '-'; // Limpiar la casilla
             }
             break;

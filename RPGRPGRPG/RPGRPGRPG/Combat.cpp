@@ -69,6 +69,7 @@ void Scene::Combat(Scene& manager)
 		}
 		else if (playerStats.actualHealth <= 0)
 		{
+			playerStats.isDead = true;
 			manager.currentScene = GAMEOVER;
 		}
 

@@ -97,7 +97,11 @@ MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][C
     if (map[playerPosition.x][playerPosition.y] == 'E') 
     {
         (*enemyCount)--;
-        manager.currentScene = COMBAT; // Cambiar a la escena de combate
+
+        if (*enemyCount >= 0)
+        {
+            manager.currentScene = COMBAT; // Cambiar a la escena de combate
+        }
     }
 
 
@@ -189,6 +193,11 @@ void Scene::Dungeon(Scene& manager, int &enemyCount)
                 RemoveEnemy(enemies, enemyIndex);
                 map[playerPosition.x][playerPosition.y] = '-'; // Limpiar la casilla
             }
+            break;
+        }
+
+        if (manager.currentScene == GAMEOVER)
+        {
             break;
         }
 

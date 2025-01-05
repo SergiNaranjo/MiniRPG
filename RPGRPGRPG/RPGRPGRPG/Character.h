@@ -12,4 +12,5 @@ struct Player
 	int actualHealth = health;
 	int actualStamina = stamina;
 	int actualPotions = potions;
+	bool isDead = false;
 };

@@ -17,6 +17,7 @@ void main()
 {
 	Scene manager;
 	manager.currentScene = DUNGEON;
+	
 
 	while (true)
 	{

@@ -9,12 +9,14 @@
 
 void Scene::Chest(Scene& manager, Player &playerStats)
 {
+    srand(time(NULL));
+
     while (true)
     {
         system("cls");
         printf("------CHEST------\n");
         printf("\n");
-
+        printf("Gold: %d\n", playerStats.gold);
         printf(" > You open the chest and it contains the following: \n");
         printf("\n");
 
@@ -22,12 +24,14 @@ void Scene::Chest(Scene& manager, Player &playerStats)
         int coins = rand() % (200 - 1 - 50) + 50;
         int gear = rand() % MAX_GEAR;
         int answer;
-        Player playerStats;
+        
 
 
         if (hasPotion == 0)
         {
             printf("  > %d gold\n", coins);
+
+            playerStats.gold += coins;
             printf("  > The Chest contains a Potion!\n");
             printf("  > The Chest contains Gear:\n");
 
@@ -66,68 +70,82 @@ void Scene::Chest(Scene& manager, Player &playerStats)
             }
 
             printf(" > Do you want to equip the item? Yes(0) or No(1)");
-            scanf_s("%d", &answer, 3);
+            scanf_s("%d", &answer, 2);
 
             if (answer == 0)
             {
                 if (gear == 0)
                 {
-                    playerStats.gold -= 200;
+                    playerStats.gold += 200;
                     playerStats.health += 20;
+                    playerStats.actualHealth += 20;
                     playerStats.stamina += 40;
+                    playerStats.actualStamina += 40;
                     playerStats.agility += 1;
                 }
                 else if (gear == 1)
                 {
-                    playerStats.gold -= 10;
+                    playerStats.gold += 10;
                     playerStats.health -= 10;
+                    playerStats.actualHealth -= 10;
                     playerStats.stamina -= 5;
+                    playerStats.actualStamina -= 5;
                     playerStats.agility += 1;
                 }
                 else if (gear == 2)
                 {
-                    playerStats.gold -= 150;
+                    playerStats.gold += 150;
                     playerStats.health -= 20;
+                    playerStats.actualHealth -= 20;
                     playerStats.stamina += 20;
+                    playerStats.actualStamina += 20;
                     playerStats.agility += 1;
                 }
                 else if (gear == 3)
                 {
                     playerStats.gold -= 300;
                     playerStats.health -= 20;
+                    playerStats.actualHealth -= 20;
                     playerStats.stamina -= 40;
+                    playerStats.actualStamina -= 40;
                     playerStats.agility -= 1;
                 }
                 else if (gear == 4)
                 {
-                    playerStats.gold -= 50;
+                    playerStats.gold += 50;
                     playerStats.health -= 10;
+                    playerStats.actualHealth -= 10;
                     playerStats.agility += 2;
                 }
                 else if (gear == 5)
                 {
-                    playerStats.gold -= 170;
+                    playerStats.gold += 170;
                     playerStats.health += 30;
+                    playerStats.actualHealth += 30;
                 }
                 else if (gear == 6)
                 {
-                    playerStats.gold -= 10;
+                    playerStats.gold += 10;
                     playerStats.health += 5;
+                    playerStats.actualHealth += 5;
                 }
                 else if (gear == 7)
                 {
-                    playerStats.gold -= 25;
+                    playerStats.gold += 25;
                     playerStats.health += 10;
+                    playerStats.actualHealth += 10;
                 }
                 else if (gear == 8)
                 {
                     playerStats.gold -= 50;
                     playerStats.stamina -= 10;
+                    playerStats.actualStamina -= 10;
                 }
                 else if (gear == 9)
                 {
-                    playerStats.gold -= 69;
+                    playerStats.gold += 69;
                     playerStats.stamina += 7;
+                    playerStats.actualStamina += 7;
                 }
             }
 
@@ -136,6 +154,9 @@ void Scene::Chest(Scene& manager, Player &playerStats)
         {
             printf("  > %d gold\n", coins);
             printf("  > The Chest contains Gear:\n");
+            playerStats.gold += coins;
+            playerStats.potions++;
+            playerStats.actualPotions++;
 
             switch (gear)
             {
@@ -172,68 +193,82 @@ void Scene::Chest(Scene& manager, Player &playerStats)
             }
 
             printf(" > Do you want to equip the item? Yes(0) or No(1)");
-            scanf_s("%d", &answer, 3);
+            scanf_s("%d", &answer, 2);
 
             if (answer == 0)
             {
                 if (gear == 0)
                 {
-                    playerStats.gold -= 200;
+                    playerStats.gold += 200;
                     playerStats.health += 20;
+                    playerStats.actualHealth += 20;
                     playerStats.stamina += 40;
+                    playerStats.actualStamina += 40;
                     playerStats.agility += 1;
                 }
                 else if (gear == 1)
                 {
-                    playerStats.gold -= 10;
+                    playerStats.gold += 10;
                     playerStats.health -= 10;
+                    playerStats.actualHealth -= 10;
                     playerStats.stamina -= 5;
+                    playerStats.actualStamina -= 5;
                     playerStats.agility += 1;
                 }
                 else if (gear == 2)
                 {
-                    playerStats.gold -= 150;
+                    playerStats.gold += 150;
                     playerStats.health -= 20;
+                    playerStats.actualHealth -= 20;
                     playerStats.stamina += 20;
+                    playerStats.actualStamina += 20;
                     playerStats.agility += 1;
                 }
                 else if (gear == 3)
                 {
                     playerStats.gold -= 300;
                     playerStats.health -= 20;
+                    playerStats.actualHealth -= 20;
                     playerStats.stamina -= 40;
+                    playerStats.actualStamina -= 40;
                     playerStats.agility -= 1;
                 }
                 else if (gear == 4)
                 {
-                    playerStats.gold -= 50;
+                    playerStats.gold += 50;
                     playerStats.health -= 10;
+                    playerStats.actualHealth -= 10;
                     playerStats.agility += 2;
                 }
                 else if (gear == 5)
                 {
-                    playerStats.gold -= 170;
+                    playerStats.gold += 170;
                     playerStats.health += 30;
+                    playerStats.actualHealth += 30;
                 }
                 else if (gear == 6)
                 {
-                    playerStats.gold -= 10;
+                    playerStats.gold += 10;
                     playerStats.health += 5;
+                    playerStats.actualHealth += 5;
                 }
                 else if (gear == 7)
                 {
-                    playerStats.gold -= 25;
+                    playerStats.gold += 25;
                     playerStats.health += 10;
+                    playerStats.actualHealth += 10;
                 }
                 else if (gear == 8)
                 {
                     playerStats.gold -= 50;
                     playerStats.stamina -= 10;
+                    playerStats.actualStamina -= 10;
                 }
                 else if (gear == 9)
                 {
-                    playerStats.gold -= 69;
+                    playerStats.gold += 69;
                     playerStats.stamina += 7;
+                    playerStats.actualStamina += 7;
                 }
             }
         }
@@ -244,7 +279,7 @@ void Scene::Chest(Scene& manager, Player &playerStats)
 
         printf("Enter any character except W, A, S, D, P or Q to continue\n");
         char pass;
-        scanf_s("%d", &pass, 3);
+        scanf_s("%d", &pass, 2);
 
         if (pass)
         {

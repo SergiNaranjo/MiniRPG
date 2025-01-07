@@ -63,7 +63,7 @@ void InitializeMap(char map[ROWS][COLS], MapPosition playerPosition, char player
     map[playerPosition.x][playerPosition.y] = playerChar;
 }
 
-MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][COLS], Scene& manager, MapPosition enemies[], int* enemyCount, int chestCount)
+MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][COLS], Scene& manager, MapPosition enemies[], int* enemyCount, int *chestCount)
 {
     // Guardar la posición previa
     MapPosition previousPosition = playerPosition;
@@ -129,8 +129,6 @@ void Scene::Dungeon(Scene& manager, int &enemyCount, Player &stats)
 
     MapPosition chests[MAX_CHESTS] = { {0, 4}, {1, 3} };
     int chestCount = 2; // Número explícito de cofres
-
-    // Generar enemigos aleatorios
     
 
     // Asignar memoria dinámica para el array de enemigos
@@ -173,7 +171,7 @@ void Scene::Dungeon(Scene& manager, int &enemyCount, Player &stats)
             stats.actualPotions--;
         }
 
-        MapPosition newPosition = MovePlayer(playerPosition, action, map, manager, enemies, &enemyCount, chestCount);
+        MapPosition newPosition = MovePlayer(playerPosition, action, map, manager, enemies, &enemyCount, &chestCount);
 
         if (manager.currentScene == COMBAT) {
             printf("¡Combate activado! Cambiando de escena...\n");

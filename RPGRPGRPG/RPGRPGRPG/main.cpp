@@ -52,12 +52,12 @@ void PrintCombat(Scene& scene, Player &stats)
 	scene.Combat(scene, stats);
 }
 
-void PrintChest(Scene& scene, Player& stats)
+void PrintChest(Scene& scene, Player &stats)
 {
 	scene.Chest(scene, stats);
 }
 
-void PrintGameOver(Scene& scene, Player& stats)
+void PrintGameOver(Scene& scene, Player &stats)
 {
 	scene.GameOver(scene, stats);
 }

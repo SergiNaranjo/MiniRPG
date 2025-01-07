@@ -46,11 +46,6 @@ void PlaceEnemies(char map[ROWS][COLS], MapPosition enemies[], int enemyCount, M
     }
 }
 
-void RemoveEnemy(MapPosition enemies[], int index) 
-{
-    
-}
-
 
 void InitializeMap(char map[ROWS][COLS], MapPosition playerPosition, char playerChar, char chestChar, MapPosition chests[], int chestCount) {
     for (int i = 0; i < ROWS; i++) {
@@ -68,7 +63,7 @@ void InitializeMap(char map[ROWS][COLS], MapPosition playerPosition, char player
     map[playerPosition.x][playerPosition.y] = playerChar;
 }
 
-MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][COLS], Scene& manager, MapPosition enemies[], int* enemyCount)
+MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][COLS], Scene& manager, MapPosition enemies[], int* enemyCount, int chestCount)
 {
     // Guardar la posición previa
     MapPosition previousPosition = playerPosition;
@@ -98,15 +93,13 @@ MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][C
     {
         (*enemyCount)--;
 
-        if (*enemyCount >= 0)
-        {
-            manager.currentScene = COMBAT; // Cambiar a la escena de combate
-        }
+         manager.currentScene = COMBAT; // Cambiar a la escena de combate
     }
 
 
     if (map[playerPosition.x][playerPosition.y] == 'C')
     {
+        chestCount--;
         manager.currentScene = CHEST; // Cambiar a la escena de combate
     }
 
@@ -123,10 +116,9 @@ void UpdateMap(char map[ROWS][COLS], MapPosition playerPosition, char playerChar
     }
 }
 
-void Scene::Dungeon(Scene& manager, int &enemyCount)
+void Scene::Dungeon(Scene& manager, int &enemyCount, Player &stats)
 {
     char map[ROWS][COLS];
-    Player stats;
     Enemy enemyStats; // Agrega la estructura o clase Enemy para el enemigo
     MapPosition playerPosition = { 3, 2 }; // Posición inicial del jugador
     MapPosition enemyPosition = { 5, 5 }; // Posición inicial del enemigo
@@ -181,7 +173,7 @@ void Scene::Dungeon(Scene& manager, int &enemyCount)
             stats.actualPotions--;
         }
 
-        MapPosition newPosition = MovePlayer(playerPosition, action, map, manager, enemies, &enemyCount);
+        MapPosition newPosition = MovePlayer(playerPosition, action, map, manager, enemies, &enemyCount, chestCount);
 
         if (manager.currentScene == COMBAT) {
             printf("¡Combate activado! Cambiando de escena...\n");
@@ -189,18 +181,8 @@ void Scene::Dungeon(Scene& manager, int &enemyCount)
             // Simular el final del combate (puedes integrar tu lógica aquí)
             printf("¡Combate terminado! Eliminando enemigo...\n");
 
-            if (enemyIndex != -1) {
-                RemoveEnemy(enemies, enemyIndex);
-                map[playerPosition.x][playerPosition.y] = '-'; // Limpiar la casilla
-            }
             break;
         }
-
-        if (manager.currentScene == GAMEOVER)
-        {
-            break;
-        }
-
 
         if (manager.currentScene == CHEST)
         {
@@ -212,6 +194,12 @@ void Scene::Dungeon(Scene& manager, int &enemyCount)
 		{
             stats.agility--;
             playerPosition = newPosition;
+        }
+
+        if (enemyCount == 0) {
+            printf("Todos los enemigos han sido derrotados. GAME OVER.\n");
+            manager.currentScene = GAMEOVER; // Cambiar la escena a GAMEOVER
+            break; // Salir del bucle
         }
 
         UpdateMap(map, playerPosition, stats.character, chestChar, chests, chestCount, enemies, enemyCount, enemyStats.enemy);

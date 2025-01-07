@@ -7,7 +7,7 @@
 #include "Enemy.h"
 #include "Scenes.h"
 
-void Scene::Chest(Scene& manager)
+void Scene::Chest(Scene& manager, Player &playerStats)
 {
     while (true)
     {

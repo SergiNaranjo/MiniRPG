@@ -8,15 +8,17 @@
 #include "Scenes.h"
 #include "Map.h"
 
-void PrintDungeon(Scene& scene, int &enemyCount);
-void PrintCombat(Scene& scene);
-void PrintChest(Scene& scene);
-void PrintGameOver(Scene& scene);
+void PrintDungeon(Scene& scene, int &enemyCount, Player &stats);
+void PrintCombat(Scene& scene, Player &stats);
+void PrintChest(Scene& scene, Player &stats);
+void PrintGameOver(Scene& scene, Player &stats);
 
 void main()
 {
 	Scene manager;
 	manager.currentScene = DUNGEON;
+	
+	Player stats;
 	
 
 	while (true)
@@ -24,38 +26,38 @@ void main()
 		switch (manager.currentScene)
 		{
 		case DUNGEON:
-			PrintDungeon(manager, manager.enemyCount);
+			PrintDungeon(manager, manager.enemyCount, stats);
 			break;
 		case COMBAT:
-			PrintCombat(manager);
+			PrintCombat(manager, stats);
 			break;
 		case CHEST:
-			PrintChest(manager);
+			PrintChest(manager, stats);
 			break;
 		case GAMEOVER:
-			PrintGameOver(manager);
+			PrintGameOver(manager, stats);
 			break;
 		}
 	}
 	
 }
 
-void PrintDungeon(Scene& scene, int &enemyCount)
+void PrintDungeon(Scene& scene, int &enemyCount, Player &stats)
 {
-	scene.Dungeon(scene, enemyCount);
+	scene.Dungeon(scene, enemyCount, stats);
 }
 
-void PrintCombat(Scene& scene)
+void PrintCombat(Scene& scene, Player &stats)
 {
-	scene.Combat(scene);
+	scene.Combat(scene, stats);
 }
 
-void PrintChest(Scene& scene)
+void PrintChest(Scene& scene, Player& stats)
 {
-	scene.Chest(scene);
+	scene.Chest(scene, stats);
 }
 
-void PrintGameOver(Scene& scene)
+void PrintGameOver(Scene& scene, Player& stats)
 {
-	scene.GameOver(scene);
+	scene.GameOver(scene, stats);
 }

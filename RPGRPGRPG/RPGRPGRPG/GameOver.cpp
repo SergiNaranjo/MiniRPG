@@ -4,10 +4,8 @@
 #include "Scenes.h"
 #include "Character.h"
 
-void Scene::GameOver(Scene& scene)
+void Scene::GameOver(Scene& scene, Player &playerStats)
 {
-	Player playerStats;
-
 	while (true)
 	{
 		system("cls");

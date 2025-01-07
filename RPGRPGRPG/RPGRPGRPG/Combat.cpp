@@ -7,10 +7,10 @@
 #include "Enemy.h"
 #include "Scenes.h"
 
-void Scene::Combat(Scene& manager)
+void Scene::Combat(Scene& manager, Player &playerStats)
 {
 	Enemy stats;
-	Player playerStats;
+	
 
 	char action;
 
@@ -117,10 +117,19 @@ void Scene::Combat(Scene& manager)
 			if (scanf_s("%d", &attackValue) == 1 && attackValue > 0 && attackValue <= playerStats.actualStamina)
 			{
 				printf("You strike the enemy with force! The enemy receives %d of damage.\n", attackValue);
-				stats.actualEnemyHealth -= attackValue;
+
 				playerStats.actualStamina -= attackValue;
-				playerStats.actualHealth -= enemyAttack;
-				stats.actualEnemyStamina -= enemyAttack;
+				stats.actualEnemyHealth -= attackValue;
+				
+				if (stats.actualEnemyStamina > 0)
+				{
+					playerStats.actualHealth -= enemyAttack;
+					stats.actualEnemyStamina -= enemyAttack;
+				}
+				else if (stats.actualEnemyStamina <= 0)
+				{
+					stats.actualEnemyStamina = stats.stamina;
+				}
 			}
 			else
 			{
@@ -136,15 +145,33 @@ void Scene::Combat(Scene& manager)
 
 			// Calcular daño enemigo reducido (75% del ataque enemigo)
 			reducedDamage = (enemyAttack * 75) / 100; // Cálculo usando división entera
-			playerStats.actualHealth -= reducedDamage;
+
+			if (stats.actualEnemyStamina > 0)
+			{
+				playerStats.actualHealth -= reducedDamage;
+			}
+			else if (stats.actualEnemyStamina <= 0)
+			{
+				stats.actualEnemyStamina = stats.stamina;
+			}
+
+			
 			break;
 
 		case 'R':
 			printf("Your stamina is fully recovered. You are vulnerable now.\n");
 			playerStats.actualStamina = playerStats.stamina;
 
-			playerStats.actualHealth -= enemyAttack;
-			stats.actualEnemyStamina -= enemyAttack;
+			if (stats.actualEnemyStamina > 0)
+			{
+				playerStats.actualHealth -= enemyAttack;
+				stats.actualEnemyStamina -= enemyAttack;
+			}
+			else if (stats.actualEnemyStamina <= 0)
+			{
+				stats.actualEnemyStamina = stats.stamina;
+			}
+			
 			break;
 
 		case 'P':

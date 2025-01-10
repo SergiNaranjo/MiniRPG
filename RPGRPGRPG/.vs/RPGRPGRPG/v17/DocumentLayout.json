@@ -7,36 +7,36 @@
       "RelativeMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|solutionrelative:RPGRPGRPG\\Dungeon.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|solutionrelative:RPGRPGRPG\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Scenes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|solutionrelative:RPGRPGRPG\\Scenes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Combat.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|solutionrelative:RPGRPGRPG\\Combat.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Consts.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|solutionrelative:RPGRPGRPG\\Consts.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|solutionrelative:RPGRPGRPG\\Map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Scenes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|solutionrelative:RPGRPGRPG\\Scenes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Character.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|solutionrelative:RPGRPGRPG\\Character.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|solutionrelative:RPGRPGRPG\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|solutionrelative:RPGRPGRPG\\Map.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Chest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|solutionrelative:RPGRPGRPG\\Chest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Combat.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|solutionrelative:RPGRPGRPG\\Combat.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|solutionrelative:RPGRPGRPG\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A8AD06C5-1FE6-42AF-A3E6-73144A216AAF}|RPGRPGRPG\\RPGRPGRPG.vcxproj|solutionrelative:RPGRPGRPG\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +50,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Enemy.h",
               "DocumentMoniker": "C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Enemy.h",
               "RelativeDocumentMoniker": "RPGRPGRPG\\Enemy.h",
@@ -64,26 +64,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "Combat.cpp",
               "DocumentMoniker": "C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Combat.cpp",
               "RelativeDocumentMoniker": "RPGRPGRPG\\Combat.cpp",
               "ToolTip": "C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Combat.cpp",
               "RelativeToolTip": "RPGRPGRPG\\Combat.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "ViewState": "AQIAAHMAAAAAAAAAAAAawGgAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-05T10:38:29.406Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Chest.cpp",
               "DocumentMoniker": "C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Chest.cpp",
               "RelativeDocumentMoniker": "RPGRPGRPG\\Chest.cpp",
               "ToolTip": "C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Chest.cpp",
               "RelativeToolTip": "RPGRPGRPG\\Chest.cpp",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAUAAAAWAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAMUAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-05T10:38:27.695Z",
               "EditorCaption": ""
@@ -96,27 +96,27 @@
               "RelativeDocumentMoniker": "RPGRPGRPG\\Dungeon.cpp",
               "ToolTip": "C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Dungeon.cpp",
               "RelativeToolTip": "RPGRPGRPG\\Dungeon.cpp",
-              "ViewState": "AQIAAG8AAAAAAAAAAAAWwIAAAABKAAAA",
+              "ViewState": "AQIAAHwAAAAAAAAAAAAAABcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-29T11:41:05.345Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Scenes.h",
               "DocumentMoniker": "C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Scenes.h",
               "RelativeDocumentMoniker": "RPGRPGRPG\\Scenes.h",
               "ToolTip": "C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Scenes.h",
               "RelativeToolTip": "RPGRPGRPG\\Scenes.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAVAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-29T11:39:10.418Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Consts.h",
               "DocumentMoniker": "C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Consts.h",
               "RelativeDocumentMoniker": "RPGRPGRPG\\Consts.h",
@@ -129,7 +129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Map.h",
               "DocumentMoniker": "C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Map.h",
               "RelativeDocumentMoniker": "RPGRPGRPG\\Map.h",
@@ -142,26 +142,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Character.h",
               "DocumentMoniker": "C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Character.h",
               "RelativeDocumentMoniker": "RPGRPGRPG\\Character.h",
               "ToolTip": "C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\Character.h",
               "RelativeToolTip": "RPGRPGRPG\\Character.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-22T11:29:29.714Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\main.cpp",
               "RelativeDocumentMoniker": "RPGRPGRPG\\main.cpp",
               "ToolTip": "C:\\Users\\naran\\Desktop\\MiniRPG\\RPGRPGRPG\\RPGRPGRPG\\main.cpp",
               "RelativeToolTip": "RPGRPGRPG\\main.cpp",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABoAAAADAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-22T11:28:21.966Z",
               "EditorCaption": ""

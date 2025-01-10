@@ -8,9 +8,12 @@
 #include "Scenes.h"
 #include "Enemy.h"
 
-void PrintMap(char map[ROWS][COLS]) {
-    for (int i = 0; i < ROWS; i++) {
-        for (int j = 0; j < COLS; j++) {
+void PrintMap(char map[ROWS][COLS]) 
+{
+    for (int i = 0; i < ROWS; i++) 
+    {
+        for (int j = 0; j < COLS; j++) 
+        {
             printf("%c ", map[i][j]);
         }
         printf("\n");
@@ -21,23 +24,36 @@ void PlaceEnemies(char map[ROWS][COLS], MapPosition enemies[], int enemyCount, M
 {
     int placed = 0;
 
-    while (placed < enemyCount) {
+    while (placed < enemyCount) 
+    {
         int x = rand() % ROWS;
         int y = rand() % COLS;
 
         // Verificar que la posición no esté ocupada por el jugador ni por cofres
-        int valid = 1;
-        if (map[x][y] != '-') valid = 0;
-        if (x == playerPosition.x && y == playerPosition.y) valid = 0;
 
-        for (int i = 0; i < chestCount; i++) {
-            if (x == chests[i].x && y == chests[i].y) {
+        int valid = 1;
+
+        if (map[x][y] != '-')
+        {
+            valid = 0;
+        }
+
+        if (x == playerPosition.x && y == playerPosition.y)
+        {
+            valid = 0;
+        }
+
+        for (int i = 0; i < chestCount; i++) 
+        {
+            if (x == chests[i].x && y == chests[i].y) 
+            {
                 valid = 0;
                 break;
             }
         }
 
-        if (valid) {
+        if (valid) 
+        {
             map[x][y] = enemyChar;
             enemies[placed].x = x;
             enemies[placed].y = y;
@@ -47,28 +63,33 @@ void PlaceEnemies(char map[ROWS][COLS], MapPosition enemies[], int enemyCount, M
 }
 
 
-void InitializeMap(char map[ROWS][COLS], MapPosition playerPosition, char playerChar, char chestChar, MapPosition chests[], int chestCount) {
-    for (int i = 0; i < ROWS; i++) {
-        for (int j = 0; j < COLS; j++) {
+void InitializeMap(char map[ROWS][COLS], MapPosition playerPosition, char playerChar, char chestChar, MapPosition chests[], int chestCount) 
+{
+    // Mapa
+    for (int i = 0; i < ROWS; i++) 
+    {
+        for (int j = 0; j < COLS; j++) 
+        {
             map[i][j] = '-';
         }
     }
 
-    // Colocar cofres
-    for (int i = 0; i < chestCount; i++) {
+    // Cofres
+    for (int i = 0; i < chestCount; i++) 
+    {
         map[chests[i].x][chests[i].y] = chestChar;
     }
 
-    // Colocar al jugador
+    // Jugador
     map[playerPosition.x][playerPosition.y] = playerChar;
 }
 
 MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][COLS], Scene& manager, MapPosition enemies[], int* enemyCount, int *chestCount)
 {
-    // Guardar la posición previa
+  
     MapPosition previousPosition = playerPosition;
 
-    // Movimiento del jugador
+    
     if (action == 'A' || action == 'a' && playerPosition.y > 0)
     {
         playerPosition.y -= 1;
@@ -85,6 +106,7 @@ MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][C
     {
         playerPosition.x += 1;
     }
+    
 
     // Comprobar si la nueva posición tiene un enemigo
     int enemyIndex = -1;
@@ -93,25 +115,27 @@ MapPosition MovePlayer(MapPosition playerPosition, char action, char map[ROWS][C
     {
         (*enemyCount)--;
 
-         manager.currentScene = COMBAT; // Cambiar a la escena de combate
+         manager.currentScene = COMBAT; 
     }
 
 
     if (map[playerPosition.x][playerPosition.y] == 'C')
     {
         chestCount--;
-        manager.currentScene = CHEST; // Cambiar a la escena de combate
+        manager.currentScene = CHEST; 
     }
 
     return playerPosition;
 }
 
 
-void UpdateMap(char map[ROWS][COLS], MapPosition playerPosition, char playerChar, char chestChar, MapPosition chests[], int chestCount, MapPosition enemies[], int enemyCount, char enemyChar) {
+void UpdateMap(char map[ROWS][COLS], MapPosition playerPosition, char playerChar, char chestChar, MapPosition chests[], int chestCount, MapPosition enemies[], int enemyCount, char enemyChar) 
+{
     InitializeMap(map, playerPosition, playerChar, chestChar, chests, chestCount);
 
-    // Colocar enemigos
-    for (int i = 0; i < enemyCount; i++) {
+    // Enemigos
+    for (int i = 0; i < enemyCount; i++) 
+    {
         map[enemies[i].x][enemies[i].y] = enemyChar;
     }
 }
@@ -119,22 +143,27 @@ void UpdateMap(char map[ROWS][COLS], MapPosition playerPosition, char playerChar
 void Scene::Dungeon(Scene& manager, int &enemyCount, Player &stats)
 {
     char map[ROWS][COLS];
-    Enemy enemyStats; // Agrega la estructura o clase Enemy para el enemigo
-    MapPosition playerPosition = { 3, 2 }; // Posición inicial del jugador
-    MapPosition enemyPosition = { 5, 5 }; // Posición inicial del enemigo
+    Enemy enemyStats; 
+    MapPosition playerPosition = { 3, 2 }; 
+    MapPosition enemyPosition = { 5, 5 }; 
     char action;
     char chestChar = 'C';
     int enemyIndex = -1; // Inicializar a -1 para indicar que no hay enemigo seleccionado
 
 
     MapPosition chests[MAX_CHESTS] = { {0, 4}, {1, 3} };
-    int chestCount = 2; // Número explícito de cofres
+    int chestCount = 2; 
     
 
-    // Asignar memoria dinámica para el array de enemigos
+    // malloc(): Asigna memoria dinámica en el heap. Pertenece a la librería stdlib.h
+    // Retorna un puntero al bloque asignado o NULL si falla. 
+    // Lo uso para poder hacer un array dinamica de enemigos aleatorios ya que no se pueden hacer arrays con variables,
+    // solo con constantes
+
     MapPosition* enemies = (MapPosition*)malloc(enemyCount * sizeof(MapPosition));
-    if (enemies == NULL) {
-        printf("Error: No se pudo asignar memoria para los enemigos.\n");
+
+    if (enemies == NULL) 
+    {
         exit(EXIT_FAILURE);
     }
 
@@ -169,23 +198,19 @@ void Scene::Dungeon(Scene& manager, int &enemyCount, Player &stats)
         if (action == 'P' || action == 'p')
         {
             stats.actualPotions--;
+            stats.actualHealth = stats.health;
         }
 
         MapPosition newPosition = MovePlayer(playerPosition, action, map, manager, enemies, &enemyCount, &chestCount);
 
-        if (manager.currentScene == COMBAT) {
-            printf("¡Combate activado! Cambiando de escena...\n");
-
-            // Simular el final del combate (puedes integrar tu lógica aquí)
-            printf("¡Combate terminado! Eliminando enemigo...\n");
-
+        if (manager.currentScene == COMBAT) 
+        {
             break;
         }
 
         if (manager.currentScene == CHEST)
         {
-            printf("¡Combate activado! Cambiando de escena...\n");
-            break; // Salir del bucle principal para entrar al combate
+            break; 
         }
 
         if (newPosition.x != playerPosition.x || newPosition.y != playerPosition.y) 
@@ -194,10 +219,10 @@ void Scene::Dungeon(Scene& manager, int &enemyCount, Player &stats)
             playerPosition = newPosition;
         }
 
-        if (enemyCount == 0) {
-            printf("Todos los enemigos han sido derrotados. GAME OVER.\n");
-            manager.currentScene = GAMEOVER; // Cambiar la escena a GAMEOVER
-            break; // Salir del bucle
+        if (enemyCount == 0) 
+        {
+            manager.currentScene = GAMEOVER; 
+            break; 
         }
 
         UpdateMap(map, playerPosition, stats.character, chestChar, chests, chestCount, enemies, enemyCount, enemyStats.enemy);
